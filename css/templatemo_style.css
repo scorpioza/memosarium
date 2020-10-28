@@ -1218,6 +1218,10 @@ http://www.templatemo.com/preview/templatemo_183_green_black
 		padding-top: 20px;
 	}
 
+	.main_column_section_content{
+		overflow-x: auto;
+	}
+
 }
 
 
@@ -1232,7 +1236,15 @@ http://www.templatemo.com/preview/templatemo_183_green_black
 }
 
 .fancybox-thumbs{
-    background: rgba(0,0,0,0.4);
+    background: rgba(0,0,0,0.4) !important;
+}
+.fancybox-caption::after{
+    border:none !important;
+}
+.fancybox-caption {
+
+    padding: 35px 44px 15px 44px !important;
+    text-align: center !important;
 }
 
 .lucid_page_gallery img{
@@ -1310,10 +1322,27 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#101010', end
 .fancybox-slide--iframe {
     padding: 10px 10px 0;
 }
+@media (max-width: 700px) {
+    .title_0JvQtdGC0L4 .main_column_section_content img,
+    .title_0J7RgtGA0LDQttC10L3QuNGPINCyIN .main_column_section_content img,
+    .title_0JRgNGD0LQ .main_column_section_content img,
+    .title_0JvQtdGB0L3QsNGPINC80LDQs9C40Y .main_column_section_content img {
+		width: 100%;
+		margin: 0 0 1em 0;
+	}
+	.title_0J7RgtGA0LDQttC10L3QuNGPINCyIN .main_column_section_content a,
+	.title_0JRgNGD0LQ .main_column_section_content a,
+	.title_0JvQtdGB0L3QsNGPINC80LDQs9C40Y .main_column_section_content a{
+		float: none !important;
+		margin: 0 0 1em 0 !important;
+	}
+	.
+}
 @media (max-width: 600px) {
     #sanskrit_instruction{
         width:95%;
     }
+
 }
 
 #sanskrit_instruction_inner{
