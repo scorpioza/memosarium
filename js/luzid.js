@@ -2,7 +2,7 @@ $(document).ready(function(){
 
 	psyArchiveToggle();
 	try{
-		$('.lucid_post a>img, .lucid_page_gallery a>img').parent().magnificPopup({type:'image'});
+		$('.lucid_post a>img, .lucid_page_gallery a>img, .lucid_page_zyu a>img').parent().magnificPopup({type:'image'});
 	}catch(e){
 		console.log(e);
 	}
