@@ -76,7 +76,10 @@ function check_location(hash){
 	}
 }
 
+// отображение материалов категории
 function lucid_show_cat(self, cat_num){
+
+  $("#side_column").removeClass('activ');
 
   if(cat_num=="inner"){
     $('.lucid_cat_side').each(function(i, el){
@@ -103,17 +106,23 @@ function lucid_show_cat(self, cat_num){
 	}
 }
 
+// выбор в архиве по названию
 function lucid_show_title(self, title){
 
-		check_location('title_'+title);
+  	$("#side_column").removeClass('activ');
 
-		$('.lucid_post').hide();
-		$('.lucid_post.title_'+title+' .lucid_more').show();
-		$('.lucid_post.title_'+title).fadeIn(400);	
-		$('.lucid_readmore').hide();
+	check_location('title_'+title);
+
+	$('.lucid_post').hide();
+	$('.lucid_post.title_'+title+' .lucid_more').show();
+	$('.lucid_post.title_'+title).fadeIn(400);	
+	$('.lucid_readmore').hide();
 }
 
+// выбор в архиве по дате
 function lucid_show_date(self, dateval, datetype){
+
+  	$("#side_column").removeClass('activ');
 
 	check_location(datetype+'_'+dateval);
 
