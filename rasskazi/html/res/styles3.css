@@ -245,7 +245,10 @@ div.page pre {
     text-decoration: none;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 800px) {
+    body {
+        font-size: 18px;
+    }
     .mobile{
         display: inline;
     }
@@ -271,5 +274,9 @@ div.page pre {
 
     img{
         width: 100%;
+    }
+
+    div.tree {
+     font-size: 16px;
     }
 }
