@@ -22,8 +22,14 @@ body {
     font-size: 15px;
     font-family: "Open Sans", sans-serif !important;
     /*white-space: pre-wrap;*/
-    background:#0f1517;
     color:white;
+}
+body.body-index{
+    background:#000 url(../imgs/bg.jpeg);
+background-position: left top;
+background-size: auto;
+background-repeat: repeat;
+background-attachment: scroll;
 }
 
 div.two-panels {
@@ -39,7 +45,7 @@ div.two-panels {
 }
 
 div.tree-panel {
-    flex: 19vw;
+    flex: 24vw;
     padding-left: 1vw;
     height: 100%;
     overflow: auto;
@@ -50,18 +56,18 @@ div.tree-panel {
     border-bottom: 1px solid #DDDDDD;
     margin-bottom: 20px;*/
     /*margin: 0.75em 0 0.75em 20px;*/
-    background:#111;
+    background-color: rgba(0,0,0,0.6);
 }
 
 div.page-panel {
-    flex: 80vw;
+    flex: 75vw;
     margin: 0;
     padding: 0;
     font-size: 0;
 }
 
 div.page-panel iframe {
-    width: 79vw;
+    width: 74vw;
     margin-left: 1vw;
     border: 0px;
     margin-top: 0px;
@@ -71,7 +77,17 @@ div.page-panel iframe {
 }
 
 div.page {
+    line-height: 30px;
+    font-size: 16px;    
     padding: 20px; 
+    background:rgba(15,21,23,0.9);
+    margin-right: 10px;
+}
+
+div.page img{
+    max-width: 100%;
+    display: block;
+    margin: 10px auto;
 }
 
 .clear {
@@ -84,27 +100,30 @@ div.page {
 
 div.tree {
     font-size: 14px;
-    color: #1aff68;
+    color: #aaa;
 }
 
 /* fix for firefox */
 div.tree button{
-    border-width: 2px;
-    color: #c9ffdb;
-    background-color: #1b282d !important;
-    border-color: #1b282d !important;
-
+    border: none;
+    padding:5px 10px;
+    color: #ccc;
+    background-color: #222;
 }
-#show-panel button {
-    border-width: 2px;
-    color: #c9ffdb;
-    background-color: #214959 !important;
-    border-color: #214959 !important;   
-    font-size:15px;
+#show-panel {
+    background-color: rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+    padding:10px 15px;
+}
+#show-panel>div{
+    background-image: url("../imgs/pngegg.png");
+    width:30px;
+    height: 30px;
+    background-size: 100% 100%;
 }
 
 div.tree a, div.tree a:visited {
-    color: #c9ffdb;
+    color: #ccc;
     text-decoration: none;
 }
 
@@ -165,7 +184,10 @@ div.page h1 {
 
 div.page h1.title {
     text-decoration: none;
-    color:#1aff68;
+    color:#fff;
+    border-bottom: 1px dotted #666;
+    display: block;
+    padding-bottom: 20px;
 }
 
 div.page h2 {
@@ -244,7 +266,12 @@ div.page pre {
     color:white;
     text-decoration: none;
 }
-@media (max-width: 700px) {
+
+
+.index-page{
+    padding:40px;
+}
+@media (max-width: 900px) {
     body {
         font-size: 18px;
     }
@@ -262,7 +289,7 @@ div.page pre {
     #show-panel{
         display: inline;
         position: absolute;
-        left: 0px;
+        right: 15px;
     }
     .mobile-show #show-panel{
         display: none;
@@ -278,4 +305,71 @@ div.page pre {
     div.tree {
      font-size: 16px;
     }
+    div.tree-panel{
+        background-color: black;
+    }
+    div.page{
+        font-size: 18px;
+
+    }
+    .index-page{
+        padding:20px;
+    }
+}
+
+
+.lucid_post {
+
+    border-radius: 0px;
+    float: left;
+    overflow: hidden;
+    -webkit-transition: .3s box-shadow cubic-bezier(.4,0,.2,1);
+    transition: .3s box-shadow cubic-bezier(.4,0,.2,1);
+    width: 33%;
+    height:515px;
+
+    background-color: rgba(0,0,0,0.6);
+    position: relative;
+}
+@media (max-width: 1000px) {
+    .lucid_post {
+        width: 50%;
+    }
+}
+@media (max-width: 600px) {
+    .lucid_post {
+        width: 100%;
+    }
+}
+
+.lucid_content{
+    padding:10px 20px;
+    overflow:hidden;
+    height: 255px;
+    font-size: 14px;
+}
+
+.snippet-thumbnail {
+    display: block;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    -webkit-transition: .3s opacity cubic-bezier(.4,0,.2,1);
+    transition: .3s opacity cubic-bezier(.4,0,.2,1);
+}
+.snippet-thumbnail, .snippet-thumbnail-container {
+    height: 184px;
+    overflow-y: hidden;
+}
+.lucid_title{
+
+    font: 500 16px Ubuntu, sans-serif;
+    padding:10px 20px 10px 20px;
+    border-bottom:1px dotted #666;
+    white-space: nowrap;
+
+}
+.lucid_post a{
+    color:#fff;
+    text-decoration: none;
 }
