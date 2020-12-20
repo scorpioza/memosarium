@@ -19,12 +19,6 @@ import base64
 # Имя xml-файла
 XML_FILE = 'blog.xml'
 
-# Текущая конфигурация. От нее зависят настройки экспорта и выбор директории шаблонов
-CONFIGURATION = 'custom' # По умолчанию: 'all'
-
-# директория с текущим шаблоном
-TMPL_FOLDER = "tmpl_"+CONFIGURATION
-
 # Требуется ли скачивание картинок с сайта blogger и замена их адресов на локальные
 SAVE_IMAGES = False
 
@@ -52,11 +46,26 @@ PROHIBED_TAGS = []
 # если список пустой - разрешены все страницы
 ALLOWED_PAGES = []
 
-# выходной файл блога
-OUT_FILE = CONFIGURATION+'.html'
-
 # название ссылки "readmore"
 READMORE_TEXT = "Дальше »"
+
+# генерировать помимо прочего отдельные html файлы в папке html
+GEN_SEPARATE_HTML=True
+
+# генерировать страницу со вструпительными текстами материалов
+GEN_EXCEPRTS_PAGE=True
+
+# количество символов в отрывке
+EXCERPT_SYMBOLS=400
+
+# Текущая конфигурация. От нее зависят настойки экспорта и выбор директории шаблонов
+CONFIGURATION = 'site' # По умолчанию: 'all'
+
+# директория с текущим шаблоном
+TMPL_FOLDER = "tmpl_"+CONFIGURATION
+
+# выходной файл блога
+OUT_FILE = CONFIGURATION+'.html'
 
 if CONFIGURATION == 'custom':  
 
@@ -70,12 +79,13 @@ if CONFIGURATION == 'custom':
 
 elif CONFIGURATION == 'site':  
 
-    ALLOWED_TAGS = ['мы']
+    ALLOWED_TAGS = ['мысли', 'сны', 'осознанные сновидения', 'практики', 'рисунки', 'фото']
     PROHIBED_TAGS = ['private']
 
     ALLOWED_PAGES = [GALLERY_TITLE]
+    #REVERSE_MODE = True
 
-    SAVE_IMAGES = True
+    #SAVE_IMAGES = True
 
 if FOR_DOC:
     TMPL_FOLDER+="_doc"    
@@ -321,10 +331,16 @@ def write_posts(entries):
 
         entries['post'] = reversed(entries['post'])
 
+
+    if GEN_EXCEPRTS_PAGE:
+        ex_html=""
+
+    num = 0
     for post in entries['post']:
         tmpl_post = TMPLS['post']
 
         title_encoded = lucid_encode(post['title'])
+        title_orig = post['title']
 
         if not FOR_DOC:
             tt = "<a href='javascript:void(null)' onclick='lucid_show_title(this, \""
@@ -389,6 +405,44 @@ def write_posts(entries):
 
         html_posts += tmpl_post
 
+        ############ ADDING HTML PAGES ##############
+
+        if GEN_SEPARATE_HTML:
+            with open("html/"+str(num+1)+" "+title_orig+".html", encoding="utf-8", mode='a') as html_file:
+                html_file.write(post['content'])
+            html_file.close()
+
+        ########## ADDING TO EXCERTPS PAGE ##########
+
+        if GEN_EXCEPRTS_PAGE:
+
+            ex_html += "<div class='lucid_post'>"
+            ex_html += "<a href='javascript:void(null)' onclick='lucid_open(this, \""
+            ex_html += str(num+1) +"\")'>"
+
+
+            pat = re.compile (r'<img [^>]*src="([^"]+)')
+            imgs = pat.findall(post['content'])
+            if len(imgs):
+                ex_html += "<div class='snippet-thumbnail-container'><div class='snippet-thumbnail' "
+                ex_html += "style='background-image:url(\""+imgs[0]+"\")'></div></div>"
+
+            ex_html += "<div class='lucid_title'>" +title_orig+"</div>\n"
+
+            cnt = cleanhtml(post['content'])[:EXCERPT_SYMBOLS]
+            ex_html += "<div class='lucid_content'>"+cnt+"</div></a></div>\n"
+
+
+        #############################################
+
+        num=num+1
+
+    if GEN_EXCEPRTS_PAGE:
+        with open("excerpts.html", encoding="utf-8", mode='w') as html_file:
+            html_file.write("<div class='lucid_wrapper'>\n"+ex_html+"</div>")
+        html_file.close()
+
+
     tmpl_site = tmpl_site.replace("%type%", "post") 
     tmpl_site = tmpl_site.replace("%"+"content%", html_posts)
 
@@ -415,6 +469,10 @@ def write_posts(entries):
 
     return (all_cats_tmpl, archive)
 
+def cleanhtml(raw_html):
+  cleanr = re.compile('<.*?>')
+  cleantext = re.sub(cleanr, '', raw_html)
+  return cleantext
 
 def translit(word):
 

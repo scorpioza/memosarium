@@ -25,11 +25,8 @@ body {
     color:white;
 }
 body.body-index{
-    background:#000 url(../imgs/bg.jpeg);
-background-position: left top;
-background-size: auto;
-background-repeat: repeat;
-background-attachment: scroll;
+    background:#000 url(../imgs/bg.jpeg) no-repeat fixed top center;
+    background-size: cover;
 }
 
 div.two-panels {
@@ -80,8 +77,8 @@ div.page {
     line-height: 30px;
     font-size: 16px;    
     padding: 20px; 
-    background:rgba(15,21,23,0.9);
-    margin-right: 10px;
+    background:rgba(15,10,22,0.98);
+    margin: 20px 20px 20px 10px;
 }
 
 div.page img{
@@ -108,7 +105,7 @@ div.tree button{
     border: none;
     padding:5px 10px;
     color: #ccc;
-    background-color: #222;
+    background-color: #2c1f39;
 }
 #show-panel {
     background-color: rgba(0, 0, 0, 0.8);
@@ -306,10 +303,11 @@ div.page pre {
      font-size: 16px;
     }
     div.tree-panel{
-        background-color: black;
+        background-color: #110b17;
     }
     div.page{
         font-size: 18px;
+        margin:10px 10px 10px 5px;
 
     }
     .index-page{
