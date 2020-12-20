@@ -182,10 +182,11 @@ div.page h1 {
 
 div.page h1.title {
     text-decoration: none;
-    color:#fff;
+    color:#d2ffbd;
     border-bottom: 1px dotted #666;
     display: block;
     padding-bottom: 20px;
+    line-height: 40px;
 }
 
 div.page h2 {
