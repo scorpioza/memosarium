@@ -103,12 +103,12 @@ div.tree button{
     border: none;
     padding:3px 10px;
     color: #ccc;
-    background-color: #034a35;
+    background-color: rgba(24,255,139,.1);
     cursor: pointer;
     border-radius: 5px; 
 }
 div.tree button:hover{
-    background-color: #03825c;
+    background-color: rgba(24,255,139,.3);
 }
 #show-panel {
     background-color: rgba(0, 0, 0, 0.8);
