@@ -108,6 +108,9 @@ div.tree button{
     color: #ccc;
     background-color: #2c1f39;
 }
+div.tree button:hover{
+    background-color: #513b66;
+}
 #show-panel {
     background-color: rgba(0, 0, 0, 0.8);
     cursor: pointer;
