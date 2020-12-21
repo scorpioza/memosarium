@@ -48,5 +48,3 @@ function hidePanel(){
 function showPanel(){
 	document.body.classList.add("mobile-show");
 }
-
-
