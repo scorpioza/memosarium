@@ -1209,16 +1209,17 @@ http://www.templatemo.com/preview/templatemo_183_green_black
 		position: inherit;
 		margin-top: 70px;
 	}
-	#memosarium_gallery_body .footer_menu{
-		position: inherit;
-		margin-top: 70px;
-	}
 	#memo_copyright{
 		margin: 20px 0 70px 0;
 	}
+
+	/*#memosarium_gallery_body .footer_menu{
+		position: inherit;
+		margin-top: 70px;
+	}	
 	#memosarium_gallery_body #memo_copyright{
 		margin: -100px 0 0 0;
-	}
+	}*/
 
 	.side_column_box_techichi .side_column_box_content{
 		padding-top: 20px;
