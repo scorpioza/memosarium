@@ -1176,23 +1176,23 @@ http://www.templatemo.com/preview/templatemo_183_green_black
 		text-decoration: none;
 	}
 	#templatemo_footer .footer_menu {
-		margin: 20px 0 5px 0;
-		padding: 0px;
+		width: 100%;
+		margin:0px;
 		list-style: none;
 	}
 
 	.footer_menu li {
 		margin: 0px;
-		padding: 0 20px;
+		padding: 0 10px 0 7px;
 		display: inline;
-		border-right: 1px solid #000000;
+		border-right: 1px dotted #C37522;
 	}
 
 	.footer_menu .last_menu {
 		border: none;
 	}
 
-	#memo_copyright{
+	.footer_menu{
 	    color: #c70; 
 	    background: #9b4d00; /* Old browsers */
 	    background: -moz-linear-gradient(top, #9b4d00 0%, transparent 23%, transparent 100%); /* FF3.6-15 */
@@ -1202,6 +1202,11 @@ http://www.templatemo.com/preview/templatemo_183_green_black
 	    padding:20px 0 10px 0;
 	    margin-top: 20px;
 	    background-color: rgba(0,0,0,0.9);
+	    position: fixed;
+	    bottom:0px;
+	}
+	#memo_copyright{
+		margin: 20px 0 70px 0;
 	}
 
 	.side_column_box_techichi .side_column_box_content{
